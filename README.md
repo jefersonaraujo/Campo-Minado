@@ -1,3 +1,3 @@
-# sd217.2
+# Campo Minada
 Repositório oficial da turma de SD da UNI7
 Branch andrebessa
