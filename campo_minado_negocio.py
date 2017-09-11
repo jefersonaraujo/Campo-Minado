@@ -1,5 +1,5 @@
 from random import randint
-
+import os
 class CampoMinado:
 
     def __init__(self, linha, coluna):
@@ -36,6 +36,13 @@ class CampoMinado:
         if coordenada  in self.__coordenadas_bombas:
             return True
         return False
+
+    def __gameOver():
+        print(". . @ . . . . . . . . . . . . . . . . . . @ . .")
+        print(". . . . @ . . . . . . . . . . . . . . @ . . . .")
+        print(". . . . . . @ BOOM!!! ÉRROOOUU ! Fastop ! @ . . . . . .")
+        print(". . . . @ . . . . . . . . . . . . . . @ . . . .")
+        print(". . @ . . . . . . . . . . . . . . . . . . @ . .")
 
     def __pega_vizinhos(self,linha,coluna):
         coordenada = (linha,coluna)
@@ -109,9 +116,16 @@ class CampoMinado:
                     bombas existentes nos nós vizinhos """
         if self.__coordenadas_validas(linha,coluna):
             if self.__mina_acertada(linha,coluna):
-                print("Game Over")
-                self.__tabuleiro[linha][coluna] = 1
+                os.system("cls")
                 self.__pega_vizinhos(linha,coluna)
+                self.__tabuleiro[linha][coluna] = 1
+                print(". . @ . . . . . . . . . . . . . . . . . . @ . .")
+                print(". . . . @ . . . . . . . . . . . . . . @ . . . .")
+                print(". . . . . . @ BOOM!!! ÉRROOOUU ! Fastop ! @ . . . . . .")
+                print(". . . . @ . . . . . . . . . . . . . . @ . . . .")
+                print(". . @ . . . . . . . . . . . . . . . . . . @ . .")
+                
+                
             else:
                 print("Escapou Fedendo !!")
                 self.__tabuleiro[linha][coluna] = 0
