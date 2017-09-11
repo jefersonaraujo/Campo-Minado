@@ -37,14 +37,32 @@ class CampoMinado:
             return True
         return False
 
+    def __pega_vizinhos(self,linha,coluna):
+        coordenada = (linha,coluna)
+        vizinhos = []
+        print (self.__coordenadas_bombas)
+        if coordenada in self.__coordenadas_bombas:
+            print ( coordenada[-1])
+        #for 
+        # for i in range(-1, 2):
+        #     for j in range(-1, 2):
+        #         if i == 0 and j == 0:
+        #             continue
+        #         elif -1 < (linha + i) < tabuleiro and -1 < (coluna + j) < tabuleiro:
+        #             vizinhos.append((linha + i, coluna + j))
+        # return vizinhos
+
         
 
     def __total_bombas(self, linha, coluna):
         return int((linha*coluna)/3)
 
     def imprimir_tabuleiro(self):
+
         for posicao in self.__tabuleiro:
             print(str(posicao))
+
+
     
     def jogada(self, linha, coluna):
         """ 1. Verifica se as coordenadas são válidas
@@ -57,6 +75,8 @@ class CampoMinado:
         if self.__coordenadas_validas(linha,coluna):
             if self.__mina_acertada(linha,coluna):
                 print("Game Over")
+                self.__tabuleiro[linha][coluna] = 1
+                self.__pega_vizinhos(linha,coluna)
             else:
                 print("Escapou Fedendo !!")
                 self.__tabuleiro[linha][coluna] = 0

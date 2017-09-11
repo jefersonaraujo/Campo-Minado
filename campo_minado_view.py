@@ -2,5 +2,7 @@ from campo_minado_negocio import CampoMinado
 
 objeto = CampoMinado(5, 3)
 objeto.imprimir_tabuleiro()
-objeto.jogada(2,1)
+
+objeto.jogada(2,0)
+
 objeto.imprimir_tabuleiro()
