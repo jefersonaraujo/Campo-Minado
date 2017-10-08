@@ -41,8 +41,9 @@ def cliente():
         contexto = {CODIGO_COMANDO: opcao}
         
         func = switcher.get(opcao)
-        print(opcao)
+
         mensagem = func(contexto)
+        print(contexto)
 
         resposta = literal_eval(enviar(mensagem))
         print(resposta.get(CODIGO_RESPOSTA))
