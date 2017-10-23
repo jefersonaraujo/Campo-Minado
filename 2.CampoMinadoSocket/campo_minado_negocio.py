@@ -31,7 +31,10 @@ class CampoMinado:
 
     def imprimir_tabuleiro(self):
         for posicao in self.__tabuleiro:
-            print(str(posicao))
+            return (str(posicao))
+
+    def tabuleiro_show(self):
+        return str(self.__tabuleiro)
 
     def _coordenadas_validas(self, linha, coluna):
         if linha not in range(0, self.__linha):
@@ -54,7 +57,7 @@ class CampoMinado:
     def _marca_jogada(self, linha, coluna):
         marcador = self._conta_bombas_vizinho(linha, coluna)
         self.__tabuleiro[linha][coluna] = marcador
-        self.imprimir_tabuleiro()
+        #self.imprimir_tabuleiro()
 
     def proxima_jogada(self):
         return self.__total_jogadas > 0
@@ -69,17 +72,20 @@ class CampoMinado:
          print("_________________________________________________\n\n")
          remove("game.json")
 
+    def qtd_jogadas(self):
+        return self.__total_jogadas
+
     def jogada(self, linha, coluna):
         if self._coordenadas_validas(linha, coluna):
             posicao = (linha, coluna)
             if posicao in self.__coordenadas_bombas:
-                self.imprimir_tabuleiro()
+                #self.imprimir_tabuleiro()
                 self.__total_jogadas = 0
                 self.gameOver()
             else:
                 self._marca_jogada(linha, coluna)
                 self.__total_jogadas -= 1
-                print("Boa Jogada!. Jogadas faltando: " + str(self.__total_jogadas))
+                #print("Boa Jogada!. Jogadas faltando: " + str(self.__total_jogadas))
                 self.__salvar()
 
                 if self.__total_jogadas == 0:
